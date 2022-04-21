@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Test</string>
+    <string name="my_dashboard">My Dashboard</string>
+    <string name="lorem">Lorem ipsum dolor sit amet sdkfj lksjdf as dlkfjl</string>
+    <string name="scan">Scan</string>
+    <string name="_30_coins">30 Coins</string>
+    <string name="available_to_buy">Available To Buy</string>
+    <string name="see_all"><u>See All</u></string>
 </resources>
