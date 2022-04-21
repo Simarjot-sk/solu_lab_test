@@ -6,5 +6,5 @@ Using **Clean Architecture** with **MVVM**, using [this official document](https
 
 **Moshi** for json parsing, **Retrofit** for networking.
 
-Demo:
-![Demo gif, click this link to see https://media.giphy.com/media/07703faXd0CVZfiooa/giphy.gif](demo.gif)
+## Demo:
+<img src="demo.gif" height="500" />
