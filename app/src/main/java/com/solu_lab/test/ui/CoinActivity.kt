@@ -56,7 +56,7 @@ class CoinActivity : AppCompatActivity() {
                 viewModel.uiState.map {
                     it.coinList
                 }.collect { coins ->
-                    Log.d("myApplication", coins.toString())
+                    binding.coinRv.adapter = CoinAdapter(coins)
                 }
             }
         }
