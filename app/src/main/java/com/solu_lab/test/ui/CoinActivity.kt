@@ -10,10 +10,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.snackbar.Snackbar
 import com.solu_lab.test.R
 import com.solu_lab.test.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -58,6 +60,20 @@ class CoinActivity : AppCompatActivity() {
                 }.collect { coins ->
                     binding.coinRv.adapter = CoinAdapter(coins)
                 }
+            }
+        }
+    }
+
+    private fun observeErrorMessage() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.map {
+                    it.errorMessage
+                }
+                    .filterNotNull()
+                    .collect { errorMessage ->
+                        Snackbar.make(binding.parent, errorMessage, Snackbar.LENGTH_SHORT).show()
+                    }
             }
         }
     }
